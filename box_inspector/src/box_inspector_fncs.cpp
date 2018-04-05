@@ -51,16 +51,10 @@ bool BoxInspector::model_poses_wrt_box(osrf_gear::Shipment &shipment_status) { /
             ROS_INFO_STREAM("model: " << model << endl);
             model_pose_wrt_cam = model.pose;
             part_pose_wrt_world = compute_stPose(cam_pose, model_pose_wrt_cam);
-            ROS_INFO_STREAM("part pose wrt world: " << part_pose_wrt_world << endl);
             
-            ROS_WARN("model_poses_wrt_box(): FINISH ME!  compute part_pose_wrt_box");
-            //MISSING LINES HERE...
-            
-            //put this into "shipment"  object:
-            //string shipment_type
-            //box_inspector/Product[] products
-            //  string type
-            //  geometry_msgs/Pose pose    
+            // missing lines here
+
+
             product.type = model.type;
             product.pose = part_pose_wrt_box;
             shipment_status.products.push_back(product);
@@ -83,6 +77,12 @@ void BoxInspector::compute_shipment_poses_wrt_world(osrf_gear::Shipment shipment
     //have the box pose wrt world
     //have shipment specification
     //compute in world coordinates where requested parts belong
+
+    Eigen::Affine3d affine_box_wrt_world, affine_part_wrt_box, affine_part_wrt_world;
+    
+    for (int i = 0 ; i < shipment_wrt_box.products.size() ; i++){
+    	
+    }
 
     
 }
